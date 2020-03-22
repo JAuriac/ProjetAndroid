@@ -1,31 +1,22 @@
 package com.julian.testapi;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.view.Menu;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
-
+public class PlayerSearch extends AppCompatActivity {
     EditText tableText;
     EditText tagText;
     EditText countryText;
@@ -39,14 +30,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_playersearch);
 
         responseView = (TextView) findViewById(R.id.responseView);
-        tableText = (EditText) findViewById(R.id.tableText);
         tagText = (EditText) findViewById(R.id.tagText);
         countryText = (EditText) findViewById(R.id.countryText);
-        eventText = (EditText) findViewById(R.id.eventText);
-        ratingText = (EditText) findViewById(R.id.ratingText);
+        //ratingText = (EditText) findViewById(R.id.ratingText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         Button queryButton = (Button) findViewById(R.id.queryButton);
@@ -56,21 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 new RetrieveFeedTask().execute();
             }
         });
-
-        Button toSearchButton = (Button) findViewById(R.id.toSearchButton);
-        toSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchActivity();
-            }
-        });
-    }
-
-
-    private void launchActivity() {
-
-        Intent intent = new Intent(this, PlayerSearch.class);
-        startActivity(intent);
     }
 
 
@@ -84,54 +58,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         protected String doInBackground(Void... urls) {
-            String table = tableText.getText().toString();
             String tag = tagText.getText().toString();
             String country = countryText.getText().toString();
-            String event = eventText.getText().toString();
-            String rating = ratingText.getText().toString();
+            //String rating = ratingText.getText().toString();
 
             try {
-                String urlString = API_URL+table+API_KEY;
-                if (table.equals("player"))
-                {
-                    if (!tag.isEmpty()){urlString += "&tag="+tag;}
-                    if (!country.isEmpty()){urlString += "&country="+country;}
-                }
-                if (table.equals("match"))
-                {
-                }
-                if (table.equals("event"))
-                {
-                    if (!country.isEmpty()){urlString += "&id="+event;}
-                }
-                if (table.equals("eventadjacency"))
-                {
-                }
-                if (table.equals("rating"))
-                {
-                    if (!rating.isEmpty()){urlString += "&="+event;}
-                }
-                if (table.equals("period"))
-                {
-                }
-                if (table.equals("group"))
-                {
-                }
-                if (table.equals("groupmembership"))
-                {
-                }
-                if (table.equals("earnings"))
-                {
-                }
-                if (table.equals("alias"))
-                {
-                }
-                if (table.equals("message"))
-                {
-                }
-                if (table.equals("story"))
-                {
-                }
+                String urlString = API_URL+"player"+API_KEY;
+                if (!tag.isEmpty()){urlString += "&tag="+tag;}
+                if (!country.isEmpty()){urlString += "&country="+country;}
                 Log.d("URL String",urlString);
                 URL url = new URL(urlString);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -165,4 +99,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
