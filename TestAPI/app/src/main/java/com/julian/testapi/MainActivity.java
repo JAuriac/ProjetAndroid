@@ -65,11 +65,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button toEventButton = (Button) findViewById(R.id.toEventButton);
+        toEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchActivityBis();
+            }
+        });
+
         Button toRankButton = (Button) findViewById(R.id.toRankButton);
         toRankButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchActivityBis();
+                launchActivityTri();
             }
         });
     }
@@ -81,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void launchActivityBis() {
+
+        Intent intent = new Intent(this, Event.class);
+        startActivity(intent);
+    }
+    private void launchActivityTri() {
 
         Intent intent = new Intent(this, Ranking.class);
         startActivity(intent);

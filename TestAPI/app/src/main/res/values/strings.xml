@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SC2Stalker</string>
     <string name="title_activity_main">Home</string>
+    <string name="title_activity_playersearch">Search a Player</string>
+    <string name="title_activity_event">Events</string>
+    <string name="title_activity_ranking">Ranking</string>
 </resources>

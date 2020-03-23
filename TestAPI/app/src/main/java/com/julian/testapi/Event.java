@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PlayerSearch extends AppCompatActivity {
+public class Event extends AppCompatActivity {
     EditText tagText;
     TextView responseView;
     ProgressBar progressBar;
@@ -26,19 +25,13 @@ public class PlayerSearch extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_playersearch);
+        setContentView(R.layout.activity_event);
 
         responseView = (TextView) findViewById(R.id.responseView);
         tagText = (EditText) findViewById(R.id.tagText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        Button queryButton = (Button) findViewById(R.id.queryButton);
-        queryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new RetrieveFeedTask().execute();
-            }
-        });
+        new RetrieveFeedTask().execute();
     }
 
 
@@ -52,11 +45,9 @@ public class PlayerSearch extends AppCompatActivity {
         }
 
         protected String doInBackground(Void... urls) {
-            String tag = tagText.getText().toString();
 
             try {
-                String urlString = API_URL+"player"+API_KEY;
-                if (!tag.isEmpty()){urlString += "&tag="+tag;}
+                String urlString = API_URL+"event"+API_KEY;
                 Log.d("URL String",urlString);
                 URL url = new URL(urlString);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -90,3 +81,4 @@ public class PlayerSearch extends AppCompatActivity {
         }
     }
 }
+
