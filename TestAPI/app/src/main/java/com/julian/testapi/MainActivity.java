@@ -64,12 +64,25 @@ public class MainActivity extends AppCompatActivity {
                 launchActivity();
             }
         });
+
+        Button toRankButton = (Button) findViewById(R.id.toRankButton);
+        toRankButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchActivityBis();
+            }
+        });
     }
 
 
     private void launchActivity() {
 
         Intent intent = new Intent(this, PlayerSearch.class);
+        startActivity(intent);
+    }
+    private void launchActivityBis() {
+
+        Intent intent = new Intent(this, Ranking.class);
         startActivity(intent);
     }
 

@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">TestAPI</string>
-    <string name="title_activity_main">ActMain</string>
+    <string name="app_name">SC2Stalker</string>
+    <string name="title_activity_main">Home</string>
 </resources>

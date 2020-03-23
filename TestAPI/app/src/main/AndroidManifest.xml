@@ -19,6 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".PlayerSearch"></activity>
+        <activity android:name=".Ranking"></activity>
+        <activity android:name=".Tab1Fragment"></activity>
+        <activity android:name=".Tab2Fragment"></activity>
+        <activity android:name=".Tab3Fragment"></activity>
+        <activity android:name=".TabAdapter"></activity>
     </application>
 
 </manifest>
