@@ -3,6 +3,8 @@ package com.julian.testapi;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,9 +29,9 @@ public class Ranking extends AppCompatActivity {
 
         adapter = new TabAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "All");
-        adapter.addFragment(new Tab2Fragment(), "XvT");
-        adapter.addFragment(new Tab3Fragment(), "XvZ");
-        adapter.addFragment(new Tab4Fragment(), "XvP");
+        adapter.addFragment(new Tab2Fragment(), "P");
+        adapter.addFragment(new Tab3Fragment(), "T");
+        adapter.addFragment(new Tab4Fragment(), "Z");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

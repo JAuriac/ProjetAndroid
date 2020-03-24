@@ -99,10 +99,6 @@ public class Event extends AppCompatActivity {
 
                 for (int i = 0; i < eventArray.length(); i++) {
                     JSONObject eventDetail = eventArray.getJSONObject(i);
-                    Log.i("fullname :",eventDetail.getString("fullname"));
-                    Log.i("latest :",eventDetail.getString("latest"));
-                    Log.i("earliest :",eventDetail.getString("earliest"));
-                    Log.i("======= :",String.valueOf(i));
 
                     EventNames.add(eventDetail.getString("fullname"));
                     LastMatches.add(eventDetail.getString("latest"));
