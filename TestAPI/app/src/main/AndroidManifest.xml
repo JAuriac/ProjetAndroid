@@ -21,6 +21,7 @@
         <activity android:name=".PlayerSearch" android:label="@string/title_activity_playersearch"></activity>
         <activity android:name=".Event" android:label="@string/title_activity_event"></activity>
         <activity android:name=".Ranking" android:label="@string/title_activity_ranking"></activity>
+        <activity android:name=".MapPool" android:label="@string/title_activity_map_pool"></activity>
         <activity android:name=".Tab1Fragment"></activity>
         <activity android:name=".Tab2Fragment"></activity>
         <activity android:name=".Tab3Fragment"></activity>

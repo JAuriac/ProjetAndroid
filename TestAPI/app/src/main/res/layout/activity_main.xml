@@ -36,43 +36,13 @@
             android:layout_gravity="end"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:text="ToRanking"/>
-        <EditText
-            android:id="@+id/tableText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter table name (like 'player' or 'earning')"/>
-        <EditText
-            android:id="@+id/tagText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter player's tag (if player)"/>
-        <EditText
-            android:id="@+id/countryText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter player's country (if player)"/>
-        <EditText
-            android:id="@+id/eventText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter event's id (if event)"/>
-        <EditText
-            android:id="@+id/ratingText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter rating against race (if rating)"/>
         <Button
-            android:id="@+id/queryButton"
+            android:id="@+id/toPoolButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:text="Search"/>
+            android:text="ToMapPool"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
