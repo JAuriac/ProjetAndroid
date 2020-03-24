@@ -44,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
                 launchActivityQuad();
             }
         });
+
+        Button toParamButton = (Button) findViewById(R.id.toParamButton);
+        toParamButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchActivityQuint();
+            }
+        });
     }
 
 
@@ -65,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
     private void launchActivityQuad() {
 
         Intent intent = new Intent(this, MapPool.class);
+        startActivity(intent);
+    }
+    private void launchActivityQuint() {
+
+        Intent intent = new Intent(this, Parameters.class);
         startActivity(intent);
     }
 }

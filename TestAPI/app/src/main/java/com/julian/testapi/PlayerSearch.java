@@ -1,5 +1,7 @@
 package com.julian.testapi;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,9 @@ public class PlayerSearch extends AppCompatActivity {
     ProgressBar progressBar;
     static final String API_KEY = "/?apikey=c2eU3jUSzazkm9JmkOy4";
     static final String API_URL = "http://aligulac.com/api/v1/";
+    SharedPreferences sharedpreferences;
+    public static final String preference = "pref";
+    public static final String Tag = "nameKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +37,44 @@ public class PlayerSearch extends AppCompatActivity {
         tagText = (EditText) findViewById(R.id.tagText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        sharedpreferences = getSharedPreferences(preference,
+                Context.MODE_PRIVATE);
+
+        Button lastButton = (Button) findViewById(R.id.lastButton);
+        lastButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Get(v);
+            }
+        });
+
         Button queryButton = (Button) findViewById(R.id.queryButton);
         queryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Save(v);
                 new RetrieveFeedTask().execute();
             }
         });
     }
 
+
+    public void Save(View view) {
+        String t = tagText.getText().toString();
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(Tag, t);
+        editor.commit();
+    }
+
+    public void Get(View view) {
+        tagText = (EditText) findViewById(R.id.tagText);
+        sharedpreferences = getSharedPreferences(preference,
+                Context.MODE_PRIVATE);
+
+        if (sharedpreferences.contains(Tag)) {
+            tagText.setText(sharedpreferences.getString(Tag, ""));
+        }
+    }
 
     class RetrieveFeedTask extends AsyncTask<Void, Void, String> {
 
