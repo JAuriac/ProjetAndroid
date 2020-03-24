@@ -9,14 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import org.json.JSONArray;
@@ -58,7 +55,6 @@ public class PlayerSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playersearch);
 
-        //responseView = (TextView) findViewById(R.id.responseView);
         tagText = (EditText) findViewById(R.id.tagText);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
@@ -83,6 +79,7 @@ public class PlayerSearch extends AppCompatActivity {
         queryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Save(v);
                 new RetrieveFeedTask().execute();
             }
         });
@@ -158,9 +155,6 @@ public class PlayerSearch extends AppCompatActivity {
             }
 
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewPlayer);
-            // set a LinearLayoutManager with default vertical orientation
-            //GridLayoutManager GridLayoutManager = new GridLayoutManager(MainActivity.this, 10);
-            //recyclerView.setLayoutManager(GridLayoutManager);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(linearLayoutManager);
 

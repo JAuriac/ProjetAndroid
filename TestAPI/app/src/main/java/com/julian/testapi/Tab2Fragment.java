@@ -37,7 +37,7 @@ public class Tab2Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View mContainer = inflater.inflate(R.layout.fragment_one, container, false);
+        View mContainer = inflater.inflate(R.layout.fragment, container, false);
 
         new Tab2Fragment.RetrieveFeedTask().execute();
         return mContainer;
